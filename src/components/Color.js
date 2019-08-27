@@ -6,13 +6,13 @@ const Color = () => {
   const [lightness, setLightness] = useState(Math.ceil(Math.random() * 100));
 
   const RandomColor = () => {
-    const setHue = Math.ceil(Math.random() * 360)
-    const setSaturation = Math.ceil(Math.random() * 100)
-    const setLightness = Math.ceil(Math.random() * 100)
+    setHue(Math.ceil(Math.random() * 360))
+    setSaturation(Math.ceil(Math.random() * 100))
+    setLightness(Math.ceil(Math.random() * 100))
   }
 
   return (
-    <main
+    <main className="body-bg"
       style={{ backgroundColor: `hsl(${hue}, ${saturation}%, ${lightness}%)` }}>
       <h1>HSL Color Picker</h1>
       <input
@@ -23,6 +23,7 @@ const Color = () => {
         value={hue}
         onChange={e => { setHue(e.target.value) }}
       />{' '}
+      <p>Hue: {hue}</p>
       <input
         className="saturation"
         type="range"
@@ -31,6 +32,7 @@ const Color = () => {
         value={saturation}
         onChange={e => { setSaturation(e.target.value) }}
       />{' '}
+      <p>Saturation: {saturation}</p>
       <input
         className="lightness"
         type="range"
@@ -39,6 +41,7 @@ const Color = () => {
         value={lightness}
         onChange={e => { setLightness(e.target.value) }}
       />{' '}
+      <p>Lightness: {lightness}</p>
       <button onClick={() => { RandomColor() }}>
         Random color!
       </button>
